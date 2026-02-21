@@ -53,6 +53,8 @@ symbols = {
   ":": ["1:2", "1:"],
   ";": ["1:2", "1:", "2:"],
   "!": ["1:3", "1:2", "1:"],
+  ".": ["1:"],
+  " ": [],
   "?": ["2:3", "1:3", ":3", ":2", "1:1", "1:"],
   "~": ["2:2", "1:3", ":2"],
   "`": ["2:3", "1:2"],
@@ -80,13 +82,69 @@ symbols = {
   "™": ["2:3", "1:3", ":3", "1:2", "2:1", ":1", "2:", "1:", ":"],
   "✓": ["2:1", "1:", ":2", ":3"],
   "[": ["2:3", "1:3", "2:2", "2:1", "2:", "1:"],
-  "]": ["1:3", ":3", ":2", ":1", "1:", ":"]
+  "]": ["1:3", ":3", ":2", ":1", "1:", ":"],
+  "а": ["1:3", "2:2", ":2", "2:1", "1:1", ":1", "2:", ":"],
+  "б": ["1:3", ":3", "2:2", "2:1", "1:1", ":1", "2:", "1:"],
+  "в": ["2:3", "1:3", "2:2", ":2", "2:1", "1:1", ":1", "2:", "1:"],
+  "г": ["2:3", "1:3", ":3", "2:2", "2:1", "2:"],
+  "д": ["1:3", "1:2", "2:1", "1:1", ":1", "2:", ":"],
+  "е": ["2:3", "1:3", ":3", "2:2", "2:1", "1:1", ":1", "2:", "1:", ":"],
+  "ё": ["2:3", ":3", "2:2", "1:2", ":2", "2:1", "1:1", "2:", "1:", ":"],
+  "ж": ["1:3", "1:2", "1:1", "1:", "2:3", ":3", "2:1", ":1", "2:", ":"],
+  "з": ["2:3", "1:3", ":2", "1:1", ":1", "2:", "1:"],
+  "и": ["2:3", "2:2", "2:1", "2:", "1:2", "1:1", ":3", ":2", ":1", ":"],
+  "й": ["1:3", "2:2", "2:1", "2:", "1:2", "1:1", ":2", ":1", ":"],
+  "к": ["2:3", "2:2", ":2", "2:1", "1:1", "2:", ":"],
+  "л": ["1:3", "2:2", ":2", "2:1", ":1", "2:", ":"],
+  "м": ["2:3", ":3", "2:2", "1:2", ":2", "2:1", ":1", "2:", ":"],
+  "н": ["2:3", ":3", "2:2", ":2", "2:1", "1:1", ":1", "2:", ":"],
+  "о": ["1:3", "2:2", ":2", "2:1", ":1", "1:"],
+  "п": ["2:3", "1:3", ":3", "2:2", ":2", "2:1", ":1", "2:", ":"],
+  "р": ["2:3", "1:3", "2:2", ":2", "2:1", "1:1", "2:"],
+  "с": ["1:3", ":3", "2:2", "2:1", "1:", ":"],
+  "т": ["2:3", "1:3", ":3", "1:2", "1:1", "1:"],
+  "у": ["2:3", ":3", "2:2", ":2", "1:1", "1:"],
+  "ф": ["1:3", "2:2", "1:2", ":2", "2:1", "1:1", ":1", "1:"],
+  "х": ["2:3", ":3", "1:2", "1:1", "2:", ":"],
+  "ц": ["2:3", ":3", "2:2", ":2", "2:1", "1:1", ":1", ":"],
+  "ч": ["2:3", ":3", "2:2", "1:2", ":2", ":1", ":"],
+  "ш": ["2:3", ":3", "2:2", "1:2", ":2", "2:1", "1:1", ":1", "2:", "1:", ":"],
+  "щ": ["2:3", ":3", "2:2", "1:2", ":2", "2:1", "1:1", ":1", ":"],
+  "ъ": ["2:3", "1:3", "2:2", "2:1", "1:1", ":1", "2:", "1:"],
+  "ы": ["2:3", ":3", "2:2", ":2", "2:1", "1:1", ":1", "2:", "1:", ":"],
+  "ь": ["2:3", "2:2", "2:1", "1:1", "2:", "1:"],
+  "э": ["1:3", ":3", "2:2", ":2", "1:1", ":1", "1:", ":"],
+  "ю": ["2:3", "2:2", "1:2", ":2", "2:1", "1:1", ":1", "2:", "1:", ":"],
+  "я": ["1:3", ":3", "2:2", "1:2", ":2", "2:1", ":1", "2:", ":"]
 }
+
+debugging = 'n'
+indentation_by_x = 0
+indentation_by_y = 0
+indentation_by_z = 0
+indentation_by_letters = 0
+teleport_to_start_pos = 'n'
+nickname = '@p'
 
 text = input("text: ")
 block = input("block: ")
-nickname = input("your nickname: ")
-debugging = input("debugging in chat (y/n): ")
+more_settings = input("more settings (y/n): ")
+if more_settings.lower() == 'y':
+  debugging = input("debugging in chat (y/n): ")
+  indentation_by_y = input("indentation of Y: ")
+  indentation_by_letters = input("indentation of letters: ")
+  teleport_to_start_pos = input("teleport to start position: ")
+  nickname = input("nickname: ")
+  if debugging == '':
+    debugging = 'n'
+  if indentation_by_y == '':
+    indentation_by_y = 0
+  if indentation_by_letters == '':
+    indentation_by_letters = 0
+  if teleport_to_start_pos == '':
+    teleport_to_start_pos = 'n'
+  if nickname == '':
+    nickname = '@p'
 
 if not block.startswith("minecraft:"):
   block = f"minecraft:{block}"
@@ -99,22 +157,26 @@ def write_in_chat(text):
   pyautogui.press('enter')
   time.sleep(0.01)
 
-print("starting...")
+print("will start in 5 seconds...")
 
 time.sleep(5)
 
 for letter in text:
   print(f"Creating '{letter}' symbol...")
   for xyz in symbols[letter]:
-    coordinate = xyz.split(':')
-    print(f"executing comand '/setblock ~{coordinate[0]} ~-1 ~{coordinate[1]} {block}'...")
-    if debugging.lower() == 'y':
-      write_in_chat(f"Executing comand '/setblock ~{coordinate[0]} ~-1 ~{coordinate[1]} {block}'...")
-    write_in_chat(f"/setblock ~{coordinate[0]} ~-1 ~{coordinate[1]} {block}")
-  print(f"executing comand '/tp {nickname} ~ ~ ~4'...")
+    if letter != " ":
+      coordinate = xyz.split(':')
+      print(f"executing comand '/setblock ~{coordinate[0]} ~{-1+int(indentation_by_y)} ~{coordinate[1]} {block}'...")
+      if debugging.lower() == 'y':
+        write_in_chat(f"Executing comand '/setblock ~{coordinate[0]} ~{-1+int(indentation_by_y)} ~{coordinate[1]} {block}'...")
+      write_in_chat(f"/setblock ~{coordinate[0]} ~{-1+int(indentation_by_y)} ~{coordinate[1]} {block}")
+  print(f"executing comand '/tp {nickname} ~ ~ ~{-4+int(indentation_by_letters)}'...")
   if debugging.lower() == 'y':
-    write_in_chat(f"Teleporting to ~-4 ~ ~...")
-  write_in_chat(f"/tp {nickname} ~-4 ~ ~")
+    write_in_chat(f"Teleporting to ~{-4+int(indentation_by_letters)} ~ ~...")
+  write_in_chat(f"/tp {nickname} ~{-4+int(indentation_by_letters)} ~ ~")
+
+if teleport_to_start_pos.lower() == 'y':
+  write_in_chat(f"/tp {nickname} ~{len(text) * (4+int(indentation_by_letters*-1))} ~ ~")
 
 if debugging.lower() == 'y':
   write_in_chat("Succes!")
